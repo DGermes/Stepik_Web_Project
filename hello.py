@@ -1,7 +1,6 @@
 
 
 def wsgi_application(environ, start_response):
-    result = []
     result = '\r\n'.join(environ['QUERY_STRING'].split('&'))
 
     status = '200 OK'
