@@ -1,4 +1,13 @@
-
+CONFIG = {
+    'mode': 'wsgi',
+    'working_dir': '/home/box/web',
+    'args': (
+        '--bind=0.0.0.0:8080',
+        '--workers=4',
+        '--timeout=60',
+        'hello:wsgi_application'
+    )
+}
 
 def wsgi_application(environ, start_response):
     # result = '\r\n'.join(environ['QUERY_STRING'].split('&'))
