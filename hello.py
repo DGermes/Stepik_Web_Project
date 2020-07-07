@@ -15,12 +15,12 @@ def wsgi_application(environ, start_response):
     result = [bytes(i + '\r\n', encoding='utf8')
               for i in environ['QUERY_STRING'].split('&')]
     # result = [bytes('\r\n'.join(environ['QUERY_STRING'].split('&')),
-    #                encoding="utf8")]
+    #          encoding="utf8")]
     # print(result)
     status = '200 OK'
     headers = [('Content-Type', 'text/plain')]
     # body = 'Hello, world!'
-    #start_response(status, headers)
+    start_response(status, headers)
     # return iter([result])
     return result
 
