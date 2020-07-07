@@ -10,12 +10,13 @@ CONFIG = {
 }
 
 def wsgi_application(environ, start_response):
-    print(environ['QUERY_STRING'])
-    result = '\r\n'.join(environ['QUERY_STRING'].split('&'))
-    # result = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')]
+    # print(environ['QUERY_STRING'])
+    # result = '\r\n'.join(environ['QUERY_STRING'].split('&'))
+    result = [bytes(i + '\r\n', encoding='utf8')
+              for i in environ['QUERY_STRING'].split('&')]
     # result = [bytes('\r\n'.join(environ['QUERY_STRING'].split('&')),
     #                encoding="utf8")]
-    print(result)
+    # print(result)
     status = '200 OK'
     headers = [('Content-Type', 'text/plain')]
     # body = 'Hello, world!'
@@ -24,6 +25,6 @@ def wsgi_application(environ, start_response):
     return result
 
 
-#environ = {}
-#environ["QUERY_STRING"] = 'http://127.0.0.1/?a=1&a=2&b=3'
-#ss = wsgi_application(environ, '')
+# environ = {}
+# environ["QUERY_STRING"] = 'a=1&c=2&b=3'
+# ss = wsgi_application(environ, '')
