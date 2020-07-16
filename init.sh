@@ -15,5 +15,10 @@ sudo /etc/init.d/nginx restart
 # sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/gunicorn.conf
 # sudo /etc/init.d/gunicorn restart
 # sudo service gunicorn restart
-sudo gunicorn -b 0.0.0.0:8080 hello:wsgi_application
+sudo gunicorn -b 0.0.0.0:8080 hello:wsgi_application &
 # sudo gunicorn -bind='0.0.0.0:8080' hello:wsgi_application
+
+#  ---- Django
+# sudo gunicorn -c /home/box/web/etc/gunicorn.conf hello:wsgi_application
+# sudo gunicorn -c /home/box/web/etc/gunicorn-django.conf ask.wsgi:application
+#     sudo gunicorn -b /home/box/web/etc/gunicorn-django.conf ask.wsgi:application
