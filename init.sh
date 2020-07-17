@@ -22,4 +22,4 @@ sudo gunicorn -b 0.0.0.0:8080 hello:wsgi_application &
 # sudo gunicorn -c /home/box/web/etc/gunicorn.conf hello:wsgi_application
 # sudo gunicorn -c /home/box/web/etc/gunicorn-django.conf ask.wsgi:application
 #sudo gunicorn -b /home/box/web/etc/gunicorn.conf ask.wsgi:application &
-sudo gunicorn -b 0.0.0.0:8000 ask.ask.wsgi:application &
+sudo gunicorn -b 0.0.0.0:8000 ask.wsgi:application &
